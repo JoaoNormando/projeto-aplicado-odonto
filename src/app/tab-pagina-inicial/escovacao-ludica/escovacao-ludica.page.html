@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button text=""></ion-back-button>
+      </ion-buttons>
+      <ion-title>Escovação Ludica</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-padding">
+        <ion-img [src]="conteudoModel.caminhoImagem"></ion-img>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-slides pager="true">
+        <ion-slide *ngFor="let item of conteudoModel.textoSlides">
+          <p class="item-slide">
+            {{ item }}
+          </p>
+        </ion-slide>
+      </ion-slides>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

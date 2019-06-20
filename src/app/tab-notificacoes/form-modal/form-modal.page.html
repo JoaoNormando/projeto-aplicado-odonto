@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> {{ id ? 'Editar notificação' : 'Nova notificação' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-padding">
+        <ion-img [src]="'assets/imagens/imagem-nova-notificacao.png'"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <form #formulario="ngForm" novalidate>
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input name="nome" #nome="ngModel" [(ngModel)]="notificacaoModel.nome" required></ion-input>
+    </ion-item>
+    <p class="danger" *ngIf="nome.dirty && nome.errors" margin-left> <ion-icon name="information-circle"></ion-icon> O nome é obrigatório</p>
+
+    <ion-item>
+      <ion-label position="floating">Horário</ion-label>
+      <ion-datetime name="data" #data="ngModel" [(ngModel)]="notificacaoModel.data" display-format="HH:mm" required></ion-datetime>
+    </ion-item>
+    <p class="danger" *ngIf="data.dirty && data.errors" margin-left><ion-icon name="information-circle"></ion-icon> A data é obrigatória</p>
+
+    <ion-button expand="block" (click)="salvar(formulario)" [disabled]="!formulario.valid" >Salvar</ion-button>
+    <ion-button expand="block" (click)="fechaModal()">Cancelar</ion-button>
+  </form>
+
+</ion-content>

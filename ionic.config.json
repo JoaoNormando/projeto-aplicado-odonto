@@ -1,5 +1,7 @@
 {
   "name": "projeto-aplicado-odonto",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
